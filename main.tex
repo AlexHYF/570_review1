@@ -37,12 +37,52 @@
 	algorithm will return.
 \end{frame}
 
+\begin{frame}{Answer 1}
+	\begin{columns}
+	\column{0.6\textwidth}
+	\begin{table}
+		\centering
+		\begin{tabular}{r|cc}
+				 &  1st & 2nd \\\hline
+			M 1 & W1 & W2 \\
+			M 2 & W2 & W1 \\
+			W 1 & M2 & M1 \\
+			W 2 & M1 & M2 \\
+		\end{tabular}
+		\caption{Table caption.}
+		\label{tab:demo}
+	\end{table}
+	\column{0.4\textwidth}
+	\begin{enumerate}
+		\item<1-> \alert{(M1,W1), (M2,W2)}
+		\item<2-> (M1,W2), (M2,W1)
+	\end{enumerate}
+	\end{columns}
+\end{frame}
+
 \begin{frame}{Question 2}
 	Find an instance of statble matching problem of size $n$, such that G-S algorithm terminates in $O(n)$ iteration.
 \end{frame}
 
+\begin{frame}{Answer 2}
+	Simple assign each man with different most preferred woman. E.g. $m_i$ prefers $w_i$ the most. In this case G-S
+	algorithm will run exactly $n$ iterations as each man will propose to different woman.
+\end{frame}
 \begin{frame}{Question 3}
 	If every man has identical preference list, how many iteration does it take for G-S algorithm to terminate, give the
 	precise answer in $n$.
+\end{frame}
+\begin{frame}{Answer 3}
+	With out lose of generality, let's assume that every man's preference list is exactly $(w_1, w_2, ..., w_n)$. G-S
+	algorithm returns a stable matching $S = \{(m'_1,w_1), (m'_2,w_2), ..., (m'_n,w_n)\}$. Since every man has the same
+	preference list. $m'_i$ must have proposed exactly $i$ times. Then the total number of iteration is $\sum_{i=1}^{n}
+	i= \frac{(n+1)n}{2}$.
+\end{frame}
+\begin{frame}{Question 4}
+	Is it true that for every $n > 2$, there exists an instance of stable matching problem that has only one solution?
+\end{frame}
+\begin{frame}{Answer 4}
+	Yes, simple make $m_i$'s $i$-th preferred woman $w_i$ and vice versa. The solution can only be $S = \{(m_i,w_i) |
+	\forall i \in [1,n]\}. $Proof is just the extended version of HW1 Q4.
 \end{frame}
 \end{document}
