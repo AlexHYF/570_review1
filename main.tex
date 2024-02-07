@@ -1,0 +1,48 @@
+\documentclass{beamer}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usetheme{focus}
+\title{Review Session\\ Stable Matching}
+\author{Yifei Huang \\ yifeih@usc.edu}
+
+\begin{document}
+\begin{frame}
+	\maketitle
+\end{frame}
+\begin{frame}{Crucial Concepts}
+	When talking about matching, we usually talk about 2 sets \textbf{A} and \textbf{B} of the same size $n$
+	\begin{itemize}
+		\item<1-> \textbf{Matching}: A matching $S$ is a set of pairs $(a,b)$ where $a \in A$ and $b \in B$, and no two
+			pairs share the same $a$ or $b$.
+		\item<2-> \textbf{Perfect Matching}: A matching $S$ is perfect if it is of size $n$. In other word, every $a \in A$
+			and $b \in B$ is matched with something.
+		\item<3-> \textbf{Unstable Matching}: A matching $S$ is unstable if there exist 2 pairs $(a_1,b_1)$ and $(a_2,b_2)$
+			such that $a_1$ prefers $b_2$ than $b_1$ and $b_2$ prefers $a_1$ than $a_2$.
+		\item<4-> \textbf{Stable Matching Problem}: Given the preference list of $A$ and $B$, find a perfect matching $S$
+			that is not unstable.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{G-S Algorithm}
+	\begin{block}<1->{Termination}
+		G-S algorithm terminates in $O(n^2)$ iterations as each man can only propose at most $n$ times.
+	\end{block}
+	\begin{alertblock}<2->{Uniqueness}
+		G-S algorithm returns a unique solution. But the problem instance might have multiple solutions.
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}{Question 1}
+	Find an instance of stable matching problem where there are multiple solutions and point out the solution that G-S
+	algorithm will return.
+\end{frame}
+
+\begin{frame}{Question 2}
+	Find an instance of statble matching problem of size $n$, such that G-S algorithm terminates in $O(n)$ iteration.
+\end{frame}
+
+\begin{frame}{Question 3}
+	If every man has identical preference list, how many iteration does it take for G-S algorithm to terminate, give the
+	precise answer in $n$.
+\end{frame}
+\end{document}
