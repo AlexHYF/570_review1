@@ -27,14 +27,15 @@
 	\begin{block}<1->{Termination}
 		G-S algorithm terminates in $O(n^2)$ iterations as each man can only propose at most $n$ times.
 	\end{block}
-	\begin{alertblock}<2->{Uniqueness}
-		G-S algorithm returns a unique solution. But the problem instance might have multiple solutions.
+	\begin{alertblock}<2->{Determined Result}
+		G-S algorithm returns a determined solution when we fix the proposing side. Therefore G-S algorithm will return
+		at most 2 solutions. There can be different solutions other than the ones we obtain from running G-S algorithm.
 	\end{alertblock}
 \end{frame}
 
 \begin{frame}{Question 1}
 	Find an instance of stable matching problem where there are multiple solutions and point out the solution that G-S
-	algorithm will return.
+	algorithm will return. (Assume men proposing).
 \end{frame}
 
 \begin{frame}{Answer 1}
@@ -44,10 +45,10 @@
 		\centering
 		\begin{tabular}{r|cc}
 				 &  1st & 2nd \\\hline
-			M 1 & W1 & W2 \\
-			M 2 & W2 & W1 \\
-			W 1 & M2 & M1 \\
-			W 2 & M1 & M2 \\
+			M1 & W1 & W2 \\
+			M2 & W2 & W1 \\
+			W1 & M2 & M1 \\
+			W2 & M1 & M2 \\
 		\end{tabular}
 		\caption{Table caption.}
 		\label{tab:demo}
@@ -65,7 +66,7 @@
 \end{frame}
 
 \begin{frame}{Answer 2}
-	Simple assign each man with different most preferred woman. E.g. $m_i$ prefers $w_i$ the most. In this case G-S
+	Simply assign each man with different most preferred woman. E.g. $m_i$ prefers $w_i$ the most. In this case G-S
 	algorithm will run exactly $n$ iterations as each man will propose to different woman.
 \end{frame}
 \begin{frame}{Question 3}
@@ -79,10 +80,23 @@
 	i= \frac{(n+1)n}{2}$.
 \end{frame}
 \begin{frame}{Question 4}
-	Is it true that for every $n > 2$, there exists an instance of stable matching problem that has only one solution?
+	Is it true that for every $n \ge 2$, there exists an instance of stable matching problem that has only one solution?
 \end{frame}
 \begin{frame}{Answer 4}
-	Yes, simple make $m_i$'s $i$-th preferred woman $w_i$ and vice versa. The solution can only be $S = \{(m_i,w_i) |
-	\forall i \in [1,n]\}. $Proof is just the extended version of HW1 Q4.
+	Yes, simply make $m_i$'s $i$-th preferred woman $w_i$ and vice versa. The solution can only be $S = \{(m_i,w_i) |
+	\forall i \in [1,n]\}.$ The proof is just the extended version of HW1 Q4.
+\end{frame}
+\begin{frame}{Question 5}
+	Design an algorithm that determine whether an instance of stable matching has only one solution. Your algorithm
+	should run in $O(n^2)$ time.
+\end{frame}
+\begin{frame}{Answer 5}
+	\visible<+->{Run G-S algorithm twice, one with men proposing and the other with women proposing. The solution is
+	unique if and only if the two runs return the same result.}
+	\begin{itemize}
+		\item<+-> \leftarrow: If two runs has the same result, this means that everyone's best and worst valid partners
+			are the same, thus everyone can be matched with only one partner and the stable matching is unique.
+		\item<+-> \rightarrow: Trivially true.
+	\end{itemize}
 \end{frame}
 \end{document}
